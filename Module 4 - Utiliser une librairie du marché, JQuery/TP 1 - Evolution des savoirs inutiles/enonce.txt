@@ -1,0 +1,18 @@
+/*
+* 1- Faire évoluer l'application "Gestion des savoirs inutiles" en utilisant JQuery sur la partie controleur et en conservant le service serviceLocalStorage 
+*
+* 2- Proposer une librairie service dans le fichier serviceAJAX.js permettant de remplacer 
+*    la librairie disponible dans le fichier serviceLocalStorage.js.
+*    Cette nouvelle librairie permettra de gérer le tableau de savoirs inutiles sur un serveur représenté par le fichier serveur.js.
+*    Informations :
+*		URL : http://localhost:1234
+*		Requête GET : 		retourne un tableau d'objets sauvegardé sur le serveur. Par défaut, le tableau est vide.
+*		Requête POST : 		ajoute l'élément passé en paramètre au tableau présent dans sur le serveur. L'objet doit être fourni au format JSON grâce à la méthode JSON.stringify().
+*					Le serveur ajoute une propriété nommée uuid permettant d'identifier l'élément.
+*		Requête DELETE : 	Le serveur supprime l'élément du tableau présent sur le serveur correspondant à l'identifiant (uuid) fourni dans le corps de la requête.
+*
+*    Indice :
+*		Les requêtes sont émises avec la méthode $.ajax dans le fichier serviceAJAX.js.
+*		Cette méthode déclenche un traitement asynchrone.
+*		Il faut donc que l'exécution des méthodes (ajouter, modifier, supprimer) soit aussi asynchrones lorsqu'elles sont appelées depuis la couche contrôleur.
+*		Pour cela, utiliser les promesses.

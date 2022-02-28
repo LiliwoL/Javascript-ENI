@@ -1,0 +1,3 @@
+ng new demo5-pipes
+cd demo5-pipes
+ng serve --open

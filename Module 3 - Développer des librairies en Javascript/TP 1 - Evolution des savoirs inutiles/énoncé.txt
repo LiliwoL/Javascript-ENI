@@ -1,0 +1,7 @@
+//TP : le savoir inutile
+//http://www.topito.com/top-infos-insolites-corps-humain
+/*
+* 1- Faire évoluer l'application en manipulant les concepts objets
+* 2- Gérer un tableau de savoirs inutiles pour permettre de trier l'affichage
+* par ordre alphabétique sur l'auteur et par ordre chronologique sur la date
+*/

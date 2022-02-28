@@ -1,0 +1,5 @@
+ng new demo3-creation-composants
+cd demo3-creation-composants
+ng generate component en-tete
+ng generate component pied-de-page
+ng serve --open

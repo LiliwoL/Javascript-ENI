@@ -1,0 +1,16 @@
+ng new demo8-formulaire
+cd demo8-formulaire
+ng g component saisiePersonne
+ng g component affichagePersonnes
+cd src/app
+mkdir services
+cd services
+ng g service GestionPersonnes
+cd ..
+mkdir models
+cd models
+ng g class Personne
+npm install bootstrap 4 --save
+#modifier le fichier style.css
+#@import '~bootstrap/dist/css/bootstrap.min.css';
+ng serve --open

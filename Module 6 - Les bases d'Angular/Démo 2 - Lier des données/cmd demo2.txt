@@ -1,0 +1,8 @@
+ng new demo2-liaison-donnees
+cd demo2-liaison-donnees
+#Les warnings sur la commande suivante n'ont pas besoin
+#d'être pris en compte
+npm install bootstrap 4 --save
+#modifier le fichier style.css
+#@import '~bootstrap/dist/css/bootstrap.min.css';
+ng serve --open --port 7777

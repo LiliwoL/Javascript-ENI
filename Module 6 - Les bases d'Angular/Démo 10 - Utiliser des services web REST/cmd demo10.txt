@@ -1,0 +1,20 @@
+ng new demo10-rest
+cd demo10-rest
+ng g component menu
+ng g component accueil
+ng g component formulaire
+ng g component informations
+ng g component inconnu
+ng g component detail
+cd src/app
+mkdir services
+cd services
+ng g service GestionInformations
+cd..
+mkdir models
+cd models
+ng g class Information
+npm install bootstrap 4 --save
+#modifier le fichier style.css
+#@import '~bootstrap/dist/css/bootstrap.min.css';
+ng serve --open

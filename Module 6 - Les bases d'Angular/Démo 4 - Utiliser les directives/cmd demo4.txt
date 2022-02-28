@@ -1,0 +1,3 @@
+ng new demo4-directives
+cd demo4-directives
+ng serve --open

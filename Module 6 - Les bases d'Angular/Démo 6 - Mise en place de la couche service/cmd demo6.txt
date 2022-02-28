@@ -1,0 +1,6 @@
+ng new demo6-services
+cd demo6-services/src/app
+mkdir services
+cd services
+ng g service ReglesMetiers
+ng serve --open

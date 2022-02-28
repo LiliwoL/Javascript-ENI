@@ -1,0 +1,9 @@
+ng new demo7-prog-reactive
+cd demo7-prog-reactive
+ng g component saisie
+ng g component affichage
+cd src/app
+mkdir services
+cd services
+ng g service GestionsDatas
+ng serve --open

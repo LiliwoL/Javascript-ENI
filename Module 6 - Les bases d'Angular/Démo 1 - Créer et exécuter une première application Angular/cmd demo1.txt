@@ -1,0 +1,3 @@
+ng new demo1-application-angular
+cd demo1-application-angular
+ng serve --open
