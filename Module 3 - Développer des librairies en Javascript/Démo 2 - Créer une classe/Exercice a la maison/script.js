@@ -11,3 +11,71 @@ let data = [{"gender":"male","name":{"title":"Mr","first":"Malone","last":"Lopez
 
     Afficher les résultats le plus joliment possible dans le html
  */
+
+
+/*
+*************** CORRIGE *************
+ */
+
+// *******************
+// 1. Ajout dans le HTML d'un conteneur qui va recevoir les données
+
+// On va chercher l'élément body
+// getElementsByTagName renvoie une collection, mais je ne veux que le premier élément! D'où le [0]
+let body = document.getElementsByTagName('body')[0];
+
+// Création de l'élement receveur
+let table = document.createElement('table');
+
+// Ajout du tableau au body
+body.appendChild(table);
+
+// *******************
+// 2 . Parcours du tableau
+
+data.forEach ( element => addElementInHTML(element) );
+
+// *******************
+// 3. fonction d'ajout
+function addElementInHTML( user )
+{
+    // On n'oublie pas de faire des console.log pour s'assurer de ce qu'on reçoit comme données
+    console.log(user);
+
+    // Création d'un élement TR
+    let tr = document.createElement('tr');
+
+    // Création d'un tableau qui contiendra toutes les cases à ajouter à l'élément tr
+    let tds = [];
+
+    // *************** GENDER
+        let tdGender = document.createElement('td');
+        // Ajout d'une classe
+        tdGender.setAttribute("class", "gender");
+        // Contenu
+        // On pourrait ici faire un swich case, et afficher un pictogramme!
+        tdGender.innerHTML = user.gender;
+
+        // Ajout du tdGender au tableau des td
+        tds.push(tdGender);
+
+    // **************** Nom
+        let tdId = document.createElement('td');
+        // Ajout d'une classe
+        tdId.setAttribute("class", "id");
+        // Contenu
+        tdId.innerHTML = user.name.title + " " + user.name.first + " " + user.name.last;
+
+        // Ajout du tdGender au tableau des td
+        tds.push(tdId);
+
+
+    // ***************
+    // ***************
+
+    // Ajout des cases td à l'élément tr
+    tds.forEach( td => tr.appendChild(td) );
+
+    // Ajout de l'élement tr au tableau
+    table.appendChild(tr);
+}
