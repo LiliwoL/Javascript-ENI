@@ -87,3 +87,32 @@ let eleves = [{
 
 // 2.3 Affectation de la valeur à li
 // 2.4 Ajout de li dans ul
+
+
+
+// ************************************************
+// **** Corrigé **
+// 1. Parcours du tableau
+eleves.forEach( eleveEnCours => ajoutEleve(eleveEnCours) );
+
+// 2. A chaque itération ajouter un li dans le ul
+function ajoutEleve(eleve){
+    // 2.1 Sélection de l'élément ul
+    let ul = document.getElementById("listeEleves");
+
+    // 2.2 Création de l'élément li
+    let li = document.createElement("li");
+
+    // 2.3 Affectation de la valeur à li
+    let p = document.createElement("p");
+    p.innerHTML = eleve.firstname + " " + eleve.lastname;
+
+    let img = document.createElement("img");
+    img.setAttribute("src", eleve.image);
+
+    li.appendChild(p);
+    li.appendChild(img);
+
+    // 2.4 Ajout de li dans ul
+    ul.appendChild(li);
+}
