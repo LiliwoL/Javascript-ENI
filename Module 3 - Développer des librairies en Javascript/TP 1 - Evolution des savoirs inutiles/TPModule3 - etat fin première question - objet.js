@@ -75,6 +75,7 @@ function ajouter() {
 }
 
 // Fonction appelée au CLIC d'un élément LI
+// Ici on utilise event comme paramètre pour récupérer la cible de l'événement
 function supprimer(event)
 {
     console.log(event.currentTarget);
