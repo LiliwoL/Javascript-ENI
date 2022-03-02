@@ -6,8 +6,8 @@
 class SavoirInutile{
 
     // On pourrait vérifier les données au moment de la construction, ce n'est pas le cas ici, on utilise des valeurs par défaut
-    constructor(savoir, auteur, dateDecouverte) {
-        this.id = Date.now();
+    constructor(id, savoir, auteur, dateDecouverte) {
+        this.id = id || generateUID();
         this.savoir = savoir || "";
         this.auteur = auteur || "";
         this.dateDecouverte = dateDecouverte || new Date();

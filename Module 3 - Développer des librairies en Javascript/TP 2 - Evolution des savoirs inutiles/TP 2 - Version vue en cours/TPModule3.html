@@ -51,11 +51,16 @@
             let listeSavoirsEnMemoire = serviceLocalStorage.recuperation();
 
             console.log(listeSavoirsEnMemoire);
-            listeSavoirsEnMemoire.forEach( savoir => {
-               let savoirEnMemoire= new SavoirInutile(savoir.savoir, savoir.auteur, savoir.date);
+            if (listeSavoirsEnMemoire){
+                listeSavoirsEnMemoire.forEach( savoir => {
+                   let savoirEnMemoire= new SavoirInutile(savoir.id, savoir.savoir, savoir.auteur, savoir.date);
 
-                savoirEnMemoire.ajouterDansLeDom()
-            });
+                    savoirEnMemoire.ajouterDansLeDom()
+
+                    // Ajout du savoir dans le tableau
+                    ajouterSavoir(savoir);
+                });
+            }
         }
 
         // Appel au chargement de la page

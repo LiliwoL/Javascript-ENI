@@ -9,11 +9,11 @@ class Controller {
     ajouter() {
         // Lecture des données du formulaire
         let libelleSavoir = document.getElementById("libelleSavoir").value;
+        let auteur = document.getElementById("auteur").value;
+        let date = document.getElementById("date").valueAsDate;
 
         // ET instanciation d'un nouveau SavoirInutile
-        var savoirInutile = new SavoirInutile(libelleSavoir,
-            document.getElementById("auteur").value,
-            document.getElementById("date").valueAsDate);
+        var savoirInutile = new SavoirInutile(null, libelleSavoir, auteur, date);
 
         // Vérification des données
         if (savoirInutile.toutEstSaisi()) {

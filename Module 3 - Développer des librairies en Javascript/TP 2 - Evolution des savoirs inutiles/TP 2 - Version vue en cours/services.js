@@ -5,19 +5,19 @@
 // Dans cette partie, on dispose de fonctions pour gérer le tableau des savoirs et traiter le localStorage
 var savoirsInutiles = [];
 
-// Méthode encore buggée
+// Méthode nettoyée
 function supprimerSavoir(id)
 {
     console.log("Id à trouver " + id);
 
     // Recherche de l'élément du tableau qui a l'id passé en paramètre
-    savoirASupprimer = savoirsInutiles.find(element => element.id = id);
+    savoirASupprimer = savoirsInutiles.find(element => element.id === id);
 
     console.log("savoirASupprimer");
     console.log(savoirASupprimer);
 
     // Suppression dans le tableau
-    savoirsInutiles.splice(savoirsInutiles.indexOf(savoirASupprimer) -1,1);
+    savoirsInutiles.splice(savoirsInutiles.indexOf(savoirASupprimer),1);
 
     // Ajout du tableau dans localStorage
     serviceLocalStorage.supprimer(savoirsInutiles);
@@ -50,4 +50,15 @@ function trierSavoirs(type)
         default:
             break;
     };
+}
+
+
+function generateUID() {
+    // I generate the UID from two parts here
+    // to ensure the random number provide enough bits.
+    var firstPart = (Math.random() * 46656) | 0;
+    var secondPart = (Math.random() * 46656) | 0;
+    firstPart = ("000" + firstPart.toString(36)).slice(-3);
+    secondPart = ("000" + secondPart.toString(36)).slice(-3);
+    return firstPart + secondPart;
 }
