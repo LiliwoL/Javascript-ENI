@@ -43,6 +43,24 @@
         // Instanciations
         let controleur = new Controller();
         let serviceLocalStorage = new ServiceLocalStorage();
+
+
+        // Fonction qui va aller lire et charger le contenu du localStorage
+        function init() {
+            // chargement de ce qui est dans le storage
+            let listeSavoirsEnMemoire = serviceLocalStorage.recuperation();
+
+            console.log(listeSavoirsEnMemoire);
+            listeSavoirsEnMemoire.forEach( savoir => {
+               let savoirEnMemoire= new SavoirInutile(savoir.savoir, savoir.auteur, savoir.date);
+
+                savoirEnMemoire.ajouterDansLeDom()
+            });
+        }
+
+        // Appel au chargement de la page
+        window.onload = init();
+
     </script>
 </body>
 

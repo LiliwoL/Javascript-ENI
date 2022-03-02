@@ -13,4 +13,8 @@ class ServiceLocalStorage{
         localStorage.setItem(this.cleSavoirsInutiles, "");
         this.ajouter(value);
     }
+
+    recuperation(){
+        return JSON.parse(localStorage.getItem(this.cleSavoirsInutiles));
+    }
 }
