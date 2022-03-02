@@ -29,17 +29,23 @@ class SavoirInutile{
 
     // Méthode pour ajouter cet objet dans le DOM
     ajouterDansLeDom(){
+        // Création des éléments  qui SERONT lancés dans le DOM
         var liSavoir = document.createElement("li");
         var pSavoir = document.createElement("p");
         var pInfos = document.createElement("p");
 
-
+        // On ajoute les données à ces éléments
         pSavoir.innerText = this.savoir;
         pInfos.innerText = this.informations();
+
+        // On leur ajoute aussi des classes
         pSavoir.className = "savoir";
         pInfos.className = "infos";
+
+        // On ajoute enfin un évenement click
         liSavoir.addEventListener("click", supprimer);
 
+        // Ajout REEL dans le DOM
         var olSavoir = document.getElementById("olListeSavoir");
         olSavoir.appendChild(liSavoir);
         liSavoir.appendChild(pSavoir);
@@ -49,8 +55,11 @@ class SavoirInutile{
 
 // Fonction appelée au clic du bouton
 function ajouter() {
-    // Lecture des données du formulaire ET instanciation d'un nouveau SavoirInutile
-    var savoirInutile = new SavoirInutile(document.getElementById("libelleSavoir").value,
+    // Lecture des données du formulaire
+    let libelleSavoir = document.getElementById("libelleSavoir").value;
+
+    // ET instanciation d'un nouveau SavoirInutile
+    var savoirInutile = new SavoirInutile(libelleSavoir,
                                         document.getElementById("auteur").value,
                                         document.getElementById("date").valueAsDate);
 
@@ -67,6 +76,7 @@ function ajouter() {
 
 function supprimer(event)
 {
+    console.log(event);
     var savoir = event.currentTarget.getElementsByTagName("p")[0].innerText
     if(confirm(`Voulez-vous supprimer le savoir "${savoir}"?`))
     {
