@@ -34,6 +34,8 @@ class Controller {
         if (confirm(`Voulez-vous supprimer le savoir "${savoir}"?`)) {
             event.currentTarget.parentNode.removeChild(event.currentTarget);
         }
+
+        // Comment supprimer également dans le tableau?
     }
 
     // Vidage de la liste
