@@ -5,11 +5,18 @@
 // Dans cette partie, on dispose de fonctions pour gérer le tableau des savoirs
 var savoirsInutiles = [];
 
-function supprimerSavoir(index)
+function supprimerSavoir(id)
 {
-    savoirsInutiles.splice(index,1);
+    console.log("Id à trouver " + id);
+    savoirASupprimer = savoirsInutiles.find(element => element.id = id);
 
-    // Ajout du tableau dans
+    console.log("savoirASupprimer");
+    console.log(savoirASupprimer);
+
+    // Suppressiond ans le tableau
+    savoirsInutiles.splice(savoirsInutiles.indexOf(savoirASupprimer),1);
+
+    // Ajout du tableau dans localStorage
     serviceLocalStorage.supprimer(savoirsInutiles);
 }
 

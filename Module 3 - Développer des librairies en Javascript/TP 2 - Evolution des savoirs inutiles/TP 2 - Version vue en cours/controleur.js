@@ -30,12 +30,16 @@ class Controller {
     // Ici on utilise event comme paramètre pour récupérer la cible de l'événement
     supprimer(event) {
         console.log(event.currentTarget);
-        var savoir = event.currentTarget.getElementsByTagName("p")[0].innerText
-        if (confirm(`Voulez-vous supprimer le savoir "${savoir}"?`)) {
+
+        let savoir = event.currentTarget;
+        var savoirText = event.currentTarget.getElementsByTagName("p")[0].innerText
+        if (confirm(`Voulez-vous supprimer le savoir "${savoirText}"?`)) {
+
+            // Suppression dans le tableau
+            supprimerSavoir(savoir.id);
+
             event.currentTarget.parentNode.removeChild(event.currentTarget);
         }
-
-        // Comment supprimer également dans le tableau?
     }
 
     // Vidage de la liste

@@ -7,6 +7,7 @@ class SavoirInutile{
 
     // On pourrait vérifier les données au moment de la construction, ce n'est pas le cas ici, on utilise des valeurs par défaut
     constructor(savoir, auteur, dateDecouverte) {
+        this.id = Date.now();
         this.savoir = savoir || "";
         this.auteur = auteur || "";
         this.dateDecouverte = dateDecouverte || new Date();
@@ -42,6 +43,9 @@ class SavoirInutile{
 
         // On ajoute enfin un évenement click
         liSavoir.addEventListener("click", controleur.supprimer);
+
+        // Ajout du id
+        liSavoir.id = this.id;
 
         // Ajout REEL dans le DOM
         var olSavoir = document.getElementById("olListeSavoir");
