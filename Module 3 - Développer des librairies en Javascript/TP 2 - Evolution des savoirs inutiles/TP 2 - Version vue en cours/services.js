@@ -8,11 +8,17 @@ var savoirsInutiles = [];
 function supprimerSavoir(index)
 {
     savoirsInutiles.splice(index,1);
+
+    // Ajout du tableau dans
+    serviceLocalStorage.supprimer(savoirsInutiles);
 }
 
 function ajouterSavoir(savoirAAjouter)
 {
     savoirsInutiles.push(savoirAAjouter);
+
+    // Ajout du tableau dans
+    serviceLocalStorage.ajouter(savoirsInutiles);
 }
 
 function trierSavoirs(type)

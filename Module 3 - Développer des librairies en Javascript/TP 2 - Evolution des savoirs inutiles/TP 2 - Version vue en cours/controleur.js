@@ -58,6 +58,3 @@ class Controller {
         this.afficherSavoirs();
     }
 }
-
-
-let controleur = new Controller();

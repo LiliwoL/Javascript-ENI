@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <!-- Simple rect element -->
+        <rect id="snake" x="0" y="0" width="100" height="100" fill="red" />
+    </svg>
+    <script>
+        // On va chercher l'élément Snake
+        let snake  = document.getElementById('snake');
+
+        // On modifie son attribut X au bout de x secondes
+        setInterval(moveX, 500);
+
+        // Fonction de calback utilisée plus haut
+        function moveX(){
+            let x = parseInt(snake.getAttribute("x"));
+            if (x > 500){
+                x = 0;
+            }
+            snake.setAttribute("x", x + 30);
+        }
+    </script>
+</body>
+</html>
