@@ -22,6 +22,10 @@ localStorage.setItem("gardien", JSON.stringify(gardien));
 //lire
 var gardienLu = localStorage.getItem("gardien");
 console.log(gardienLu);
+
+
+
+
 var objetGardienLu = JSON.parse(localStorage.getItem("gardien"));
 console.log(objetGardienLu);
 
