@@ -2,24 +2,28 @@
 //PARTIE SERVICE/////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
-// Dans cette partie, on dispose de fonctions pour gérer le tableau des savoirs
+// Dans cette partie, on dispose de fonctions pour gérer le tableau des savoirs et traiter le localStorage
 var savoirsInutiles = [];
 
+// Méthode encore buggée
 function supprimerSavoir(id)
 {
     console.log("Id à trouver " + id);
+
+    // Recherche de l'élément du tableau qui a l'id passé en paramètre
     savoirASupprimer = savoirsInutiles.find(element => element.id = id);
 
     console.log("savoirASupprimer");
     console.log(savoirASupprimer);
 
-    // Suppressiond ans le tableau
-    savoirsInutiles.splice(savoirsInutiles.indexOf(savoirASupprimer),1);
+    // Suppression dans le tableau
+    savoirsInutiles.splice(savoirsInutiles.indexOf(savoirASupprimer) -1,1);
 
     // Ajout du tableau dans localStorage
     serviceLocalStorage.supprimer(savoirsInutiles);
 }
 
+// Ajout du savoir dans le tableau eT dans le localStorage
 function ajouterSavoir(savoirAAjouter)
 {
     savoirsInutiles.push(savoirAAjouter);

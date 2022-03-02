@@ -4,6 +4,7 @@
 
 class Controller {
     // Dans cette partie, on dispose de fonctions appelées suite aux actions de l'utilisateur
+
     // Fonction appelée au clic du bouton
     ajouter() {
         // Lecture des données du formulaire
