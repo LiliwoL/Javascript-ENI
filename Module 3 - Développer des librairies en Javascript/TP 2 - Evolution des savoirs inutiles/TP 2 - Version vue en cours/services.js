@@ -28,7 +28,7 @@ function ajouterSavoir(savoirAAjouter)
 {
     savoirsInutiles.push(savoirAAjouter);
 
-    // Ajout du tableau dans
+    // Ajout du tableau dans le storage
     serviceLocalStorage.ajouter(savoirsInutiles);
 }
 
