@@ -44,7 +44,7 @@ class Controller {
 
     // Parcours du tableau des savoirs
     afficherSavoirs() {
-        effacerSavoirs();
+        this.effacerSavoirs();
 
         // Notez la syntaxe du forEach
         savoirsInutiles.forEach((value, index, array) => {
@@ -55,8 +55,9 @@ class Controller {
 
     trier(type) {
         trierSavoirs(type);
-        afficherSavoirs();
+        this.afficherSavoirs();
     }
 }
+
 
 let controleur = new Controller();
