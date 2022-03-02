@@ -74,9 +74,10 @@ function ajouter() {
     }
 }
 
+// Fonction appelée au CLIC d'un élément LI
 function supprimer(event)
 {
-    console.log(event);
+    console.log(event.currentTarget);
     var savoir = event.currentTarget.getElementsByTagName("p")[0].innerText
     if(confirm(`Voulez-vous supprimer le savoir "${savoir}"?`))
     {
