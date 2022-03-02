@@ -5,6 +5,11 @@
 * 2- Gérer un tableau de savoirs inutiles pour permettre de trier l'affichage
 * par ordre alphabétique sur l'auteur et par ordre chronologique sur la date
 */
+/////////////////////////////////////////////////////////////////////////////
+//PARTIE METIER//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+// Dans cette partie, on définit la classe SavoirInutile
 class SavoirInutile{
 
     // On pourrait vérifier les données au moment de la construction, ce n'est pas le cas ici, on utilise des valeurs par défaut
@@ -53,6 +58,49 @@ class SavoirInutile{
     }
 }
 
+
+/////////////////////////////////////////////////////////////////////////////
+//PARTIE SERVICE/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+// Dans cette partie, on dispose de fonctions pour gérer le tableau des savoirs
+var savoirsInutiles = [];
+
+function supprimerSavoir(index)
+{
+    savoirsInutiles.splice(index,1);
+}
+
+function ajouterSavoir(savoirAAjouter)
+{
+    savoirsInutiles.push(savoirAAjouter);
+}
+
+function trierSavoirs(type)
+{
+    switch (type) {
+        case 'a_az':
+            savoirsInutiles.sort((siA,siB)=>siA.auteur.localeCompare(siB.auteur));
+            break;
+        case 'a_za':
+            savoirsInutiles.sort((siA,siB)=>siB.auteur.localeCompare(siA.auteur));
+            break;
+        case 'd_ra':
+            savoirsInutiles.sort((siA,siB)=>siA.dateDecouverte-siB.dateDecouverte);
+            break;
+        case 'd_ar':
+            savoirsInutiles.sort((siA,siB)=>siB.dateDecouverte-siA.dateDecouverte);
+            break;
+        default:
+            break;
+    };
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//PARTIE CONTROLEUR//////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+// Dans cette partie, on dispose de fonctions appelées suite aux actions de l'utilisateur
 // Fonction appelée au clic du bouton
 function ajouter() {
     // Lecture des données du formulaire
@@ -66,6 +114,9 @@ function ajouter() {
     // Vérification des données
     if (savoirInutile.toutEstSaisi())
     {
+        // Ajout du savoir dans le tableau
+        ajouterSavoir(savoirInutile);
+
         // Appel de la méthode d'ajout dans le dom
         savoirInutile.ajouterDansLeDom();
     }
@@ -84,4 +135,30 @@ function supprimer(event)
     {
         event.currentTarget.parentNode.removeChild(event.currentTarget);
     }
+}
+
+// Vidage de la liste
+function effacerSavoirs()
+{
+    var olSavoir = document.getElementById("olListeSavoir");
+    olSavoir.innerHTML="";
+}
+
+// Parcours du tableau des savoirs
+function afficherSavoirs()
+{
+    effacerSavoirs();
+
+    // Notez la syntaxe du forEach
+    savoirsInutiles.forEach((value, index, array)=>
+        {
+            value.ajouterDansLeDom();
+        }
+    )
+}
+
+function trier(type)
+{
+    trierSavoirs(type);
+    afficherSavoirs();
 }
