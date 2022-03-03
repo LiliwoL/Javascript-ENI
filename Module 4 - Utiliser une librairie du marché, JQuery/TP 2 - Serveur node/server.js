@@ -7,6 +7,7 @@ const fs = require('fs');
 
 // Ce serveur va utiliser la librairie Express qui permet de faire un serveur Web
 // Il aura fallu au préalable installer la dépendance
+// npm install express --save
 var express = require('express');
 var router = express();
 
