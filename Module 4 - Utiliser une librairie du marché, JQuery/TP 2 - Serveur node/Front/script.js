@@ -41,4 +41,36 @@ function traiterDonnesRecues(data){
 
     // Afficher dans le DOM
     console.log(data);
+
+    // Ajout d'un table dans #listeResultats
+    $('#listeResultats').append(
+        $('<table></table>').addClass("table table-hover")
+    );
+
+    data.forEach( element => ajoutDansLeDom(element));
+}
+
+function ajoutDansLeDom(data){
+   // Création d'un élément tr
+    let tr = $('<tr></tr>');
+    // Ajout des td
+    tr.append(
+      $('<td>' + data.id + '</td>')
+    );
+
+    tr.append(
+        $('<td>' + data.name + '</td>')
+    );
+
+    tr.append(
+        $('<td>' + data.description + '</td>')
+    );
+
+    tr.append(
+        $('<td><img src="' + data.imageURL + '"></td>')
+    );
+
+
+    // Sélection du tableau dans #listeResultats
+    $('#listeResultats table').append(tr);
 }
