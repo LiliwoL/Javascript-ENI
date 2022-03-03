@@ -18,7 +18,7 @@ function fonctionFetch(){
     // Fetch
     if (window.fetch){
         fetch(
-            "http://127.0.0.1:8080/api/items"
+            "http://127.0.0.1:8080/api/search?term=running"
         )
             .then(
                 (donneesRecues) => {
@@ -42,6 +42,9 @@ function traiterDonnesRecues(data){
     // Afficher dans le DOM
     console.log(data);
 
+    // On doit sélectionner directement le tableau Search
+    data = data.Search
+
     // Ajout d'un table dans #listeResultats
     $('#listeResultats').append(
         $('<table></table>').addClass("table table-hover")
@@ -51,23 +54,23 @@ function traiterDonnesRecues(data){
 }
 
 function ajoutDansLeDom(data){
-   // Création d'un élément tr
+    // Création d'un élément tr
     let tr = $('<tr></tr>');
     // Ajout des td
     tr.append(
-      $('<td>' + data.id + '</td>')
+        $('<td>' + data.Title + '</td>')
     );
 
     tr.append(
-        $('<td>' + data.name + '</td>')
+        $('<td>' + data.Year + '</td>')
     );
 
     tr.append(
-        $('<td>' + data.description + '</td>')
+        $('<td>' + data.imdbID + '</td>')
     );
 
     tr.append(
-        $('<td><img src="' + data.imageURL + '"></td>')
+        $('<td><img src="' + data.Poster + '"></td>')
     );
 
     // Sélection du tableau dans #listeResultats
