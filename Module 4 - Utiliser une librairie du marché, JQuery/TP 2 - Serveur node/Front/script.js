@@ -18,11 +18,16 @@ function fonctionFetch(){
     // Fetch
     if (window.fetch){
         fetch(
-            "http://127.0.0.1:8080/api/items",
-            { "mode": "no-cors"}
+            "http://127.0.0.1:8080/api/items"
         )
             .then(
-                (donneesRecues) => traiterDonnesRecues(donneesRecues)
+                (donneesRecues) => {
+                    donneesRecues.json()
+                        .then(
+                            (donnesTransformeesEnJson) => traiterDonnesRecues(donnesTransformeesEnJson)
+                        )
+                        .catch()
+                }
             ) // Promesse tenue
             .catch(); // Promesse ratée
     }else{
@@ -32,6 +37,8 @@ function fonctionFetch(){
 
 // Fonction de rappel utilisée en cas de fetch réussi
 function traiterDonnesRecues(data){
-    console.log(data);
+    console.log(typeof data);
+
     // Afficher dans le DOM
+    console.log(data);
 }
