@@ -18,7 +18,8 @@ function fonctionFetch(){
     // Fetch
     if (window.fetch){
         fetch(
-            "http://127.0.0.1:8080/api/items"
+            "http://127.0.0.1:8080/api/items",
+            { "mode": "no-cors"}
         )
             .then(
                 (donneesRecues) => traiterDonnesRecues(donneesRecues)
