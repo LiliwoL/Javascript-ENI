@@ -7,5 +7,6 @@ router.get('/api/items', (req, res) => {
         let obj = JSON.parse(json);
         res.json(obj);
     });
-
 });
+
+router.listen(8080);
