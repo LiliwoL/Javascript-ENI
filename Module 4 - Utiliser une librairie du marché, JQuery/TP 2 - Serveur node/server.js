@@ -75,5 +75,9 @@ router.get(
     }
 );
 
+const port = 8000
+
 // Oné coute sur le port 8080
-router.listen(8080);
+router.listen(port, () => {
+    console.log(`Votre serveur fonctionne et écoute sur le port: ${port}`)
+});
