@@ -9,7 +9,10 @@ const fs = require('fs');
 // Il aura fallu au préalable installer la dépendance
 // npm install express --save
 var express = require('express');
+//var cors = require('cors')  //use this
 var router = express();
+
+//router.use(cors()) //and this
 
 router.get(
     '/api/items', // L'url
