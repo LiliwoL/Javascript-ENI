@@ -17,6 +17,7 @@ if (window.fetch) {
         .catch((error) => console.log("Message d'erreur reçu: " + error));
 } else {
     // Faire quelque chose avec XMLHttpRequest?
+    console.log("Fetch n'est pas dispo!");
 }
 
 function fonctionTraitement ( data ){
