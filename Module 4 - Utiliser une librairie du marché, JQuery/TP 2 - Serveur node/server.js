@@ -1,6 +1,15 @@
 // TP
-
 // Ici, on va créer un serveur avec Node js
+
+// Ce serveur prend en charge les urls suivantes
+// /
+// /api/items
+// /api/search?term=xxxx
+
+// Dépendances requises
+// express
+// cors
+// axios
 
 // Ce serveur va avoir besoin de lire un fichier avec le module fs (file System)
 const fs = require('fs');
