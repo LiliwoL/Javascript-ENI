@@ -19,11 +19,27 @@ if (window.fetch) {
     // Faire quelque chose avec XMLHttpRequest?
 }
 
-
-
-
 function fonctionTraitement ( data ){
     console.log( data );
 
-    //data.forEach...
+    // Parcours du tableau reçu
+    data.forEach( savoirEnCours => ajoutSavoir(savoirEnCours) );
+}
+
+function ajoutSavoir( savoir ){
+    let olSavoir = document.getElementById('listeSavoirs');
+
+    var liSavoir = document.createElement("li");
+    var pSavoir = document.createElement("p");
+    var pInfos = document.createElement("p");
+
+
+    pSavoir.innerText = savoir.libelleSavoir;
+    pInfos.innerText = `Par ${savoir.auteur}, le ${savoir.date}`;
+    pSavoir.className = "savoir";
+    pInfos.className = "infos";
+
+    olSavoir.appendChild(liSavoir);
+    liSavoir.appendChild(pSavoir);
+    liSavoir.appendChild(pInfos);
 }
