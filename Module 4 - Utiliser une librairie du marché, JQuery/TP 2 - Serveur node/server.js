@@ -11,11 +11,57 @@ const fs = require('fs');
 var express = require('express');
 var router = express();
 
-router.get('/api/items', (req, res) => {
-    fs.readFile('./data/db.json', (err, json) => {
-        let obj = JSON.parse(json);
-        res.json(obj);
+router.get(
+    '/api/items', // L'url
+    (req, res) =>
+    {
+        // On a accès à un objet req et res
+        fs.readFile('./data/db.json', (err, json) => {
+            let obj = JSON.parse(json);
+            res.json(obj);
+        });
     });
-});
 
+// On aura besoin de axios!
+// npm install axios
+router.get(
+    '/api/search', // L'url
+    (req, res) =>
+    {
+        // Récupération du paramètre passé dans l'url
+        // http://......:8080/api/search?term=truc
+        //console.log(req.query);
+        let queryTitle = req.query.term;
+
+        if (queryTitle != ""){
+            const axios = require('axios');
+
+            // Make a request for a user with a given ID
+            axios.get('http://www.omdbapi.com/?apikey=b20c0d21&s=' + queryTitle)
+                .then(function (response) {
+                    // handle success
+                    //console.log(response.data);
+                    res.send(response.data);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                    res.send("Error");
+                })
+                .then(function () {
+                    // always executed
+                });
+        }
+    });
+
+// Gestion d'une route simple, et réponse toute simple
+router.get(
+    '/',
+    (req, res) =>
+    {
+        res.send("<h1>Coucou</h1>");
+    }
+);
+
+// Oné coute sur le port 8080
 router.listen(8080);
