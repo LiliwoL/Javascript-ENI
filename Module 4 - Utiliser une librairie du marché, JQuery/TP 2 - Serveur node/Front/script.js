@@ -3,8 +3,6 @@ jQuery(document).ready(
         // Ajout d'une classe truc
         $('#listeResultats').addClass('truc');
 
-
-
         // Ajout un comportement au bouton #boutonFetch
         $('#boutonFetch').on(
             "click",
@@ -34,4 +32,5 @@ function fonctionFetch(){
 // Fonction de rappel utilisée en cas de fetch réussi
 function traiterDonnesRecues(data){
     console.log(data);
+    // Afficher dans le DOM
 }
