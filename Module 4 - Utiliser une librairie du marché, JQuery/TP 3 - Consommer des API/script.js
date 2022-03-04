@@ -5,6 +5,9 @@ jQuery(document).ready(
             "click",
             fonctionFetch
         );
+
+        // Affichage de la carte
+        var map = L.map('map').setView([47.468700, -0.558810], 13);
     }
 );
 
